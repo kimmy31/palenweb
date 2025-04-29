@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/student', function(){
+    echo "Student Page";
+})->middleware('roles:student');
+Route::get('/admin', function(){
+    echo "Admin Page";
+})->middleware('roles:admin');
